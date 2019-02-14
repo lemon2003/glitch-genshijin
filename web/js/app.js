@@ -31,9 +31,24 @@ function convertToGenshijinLanguage(omaeSentence) {
 
 		preloaderArea.classList.add("active");
 
+		M.toast({
+			html: "ヘンカン チュウ...",
+			classes: "grey darken-4"
+		});
+
 		convertToGenshijinLanguage(omaeSentence)
 			.then((genshijinSentence) => {
 				genshijinSentenceArea.value = genshijinSentence;
+			}).then(() => {
+				M.toast({
+					html: "ミンナ トモダチ",
+					classes: "light-green"
+				});
+			}).catch((error) => {
+				M.toast({
+					html: "コトバ ムズカシ イ",
+					classes: "red"
+				});
 			}).finally(() => {
 				preloaderArea.classList.remove("active");
 			});
