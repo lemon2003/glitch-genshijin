@@ -15,6 +15,7 @@ function convertToGenshijinLanguage(omaeSentence) {
 	const omaeSentenceArea = document.getElementById("js-omaeSentence");
 	const genshijinSentenceArea = document.getElementById("js-genshijinSentence");
 	const convertBtnArea = document.getElementById("js-convertBtn");
+	const preloaderArea = document.getElementById("js-preloader");
 
 	let omaeSentence = "";
 	let omaeSentenceChanged = false;
@@ -27,9 +28,14 @@ function convertToGenshijinLanguage(omaeSentence) {
 
 	convertBtnArea.addEventListener("click", (event) => {
 		if(!omaeSentenceChanged) return;
+
+		preloaderArea.classList.add("active");
+
 		convertToGenshijinLanguage(omaeSentence)
 			.then((genshijinSentence) => {
 				genshijinSentenceArea.value = genshijinSentence;
+			}).finally(() => {
+				preloaderArea.classList.remove("active");
 			});
 
 		omaeSentenceChanged = false;
