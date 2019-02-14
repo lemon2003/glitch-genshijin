@@ -1,0 +1,19 @@
+{
+  "name": "glitch-genshijin",
+  "version": "1.0.0",
+  "description": "オレ プログラム ウゴカス オマエ ゲンシジン ナル",
+  "main": "web/index.js",
+  "scripts": {
+    "start": "node web/index.js",
+    "test": "node web/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "glitch-genshijin"
+  },
+  "author": "lemon2003",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.2.0"
+  }
+}
